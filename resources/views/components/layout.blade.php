@@ -4,13 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>الصفحة الرئيسية</title>
-
     @vite(['resources/css/app.css', 'resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
-
 <div class="container">
     <header class="mx-auto mt-4">
         <div class="d-flex justify-content-between align-items-center">
@@ -22,17 +19,18 @@
                     <li><a href="#">التقارير</a></li>
                 </ul>
             </div>
-
             <div>
-                <a href="/login" class="btn1">تسجيل الدخول</a>
+                @if(auth()->check())
+                    {{auth()->user()->name}}
+                @else
+                    <a href="{{route('sessions.create')}}" class="btn1">تسجيل الدخول</a>
+                @endif
             </div>
         </div>
     </header>
-
     <main class="mt-5">
         {{$slot}}
     </main>
 </div>
-
 </body>
 </html>

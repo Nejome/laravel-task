@@ -1,3 +1,4 @@
+@import "@fortawesome/fontawesome-free/css/all.css";
 
 :root {
     --primryColor: #43766d;
@@ -105,4 +106,16 @@ header ul a:hover, a.active {
 
 .hr-input:focus {
     border-color: var(--primryColor);
+}
+
+.hr-error-message-text {
+    font-size: 12px;
+}
+
+.hr-alert-danger {
+    padding: 10px 15px;
+    background-color: #fecaca;
+    color: #ef4444;
+    border: none;
+    border-radius: .4rem;
 }
