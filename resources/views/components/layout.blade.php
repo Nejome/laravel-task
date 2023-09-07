@@ -18,7 +18,9 @@
                         <ul>
                             <li><a href="{{route('applications.pending')}}" class="@if(request()->route()->getName() == 'applications.pending') active @endif">الطلبات قيد الإنتظار</a></li>
 
-                            <li><a href="{{route('applications.index')}}" class="@if(request()->route()->getName() == 'applications.index') active @endif">التقرير</a></li>
+                            @can('viewApplicationsReport', \App\Models\Application::class)
+                                <li><a href="{{route('applications.index')}}" class="@if(request()->route()->getName() == 'applications.index') active @endif">التقرير</a></li>
+                            @endcan
                         </ul>
                     @endif
                 </div>
