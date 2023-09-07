@@ -47,7 +47,7 @@ class User extends Authenticatable
         'role' => UserRoleEnum::class
     ];
 
-    public function password(): Attribute
+    protected function password(): Attribute
     {
         return Attribute::make(
           set: fn ($value) => $value != null ? bcrypt($value) : $this->password

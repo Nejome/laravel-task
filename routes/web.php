@@ -26,11 +26,19 @@ Route::controller(HomeController::class)->group(function() {
     Route::get('/', 'index')->name('home');
 });
 
+Route::post('/applications', [ApplicationController::class, 'store'])->name('applications.store');
+
 Route::middleware('auth')->group(function() {
-    Route::delete('logout', [SessionController::class, 'destroy'])->name('sessions.destroy');
+    Route::delete('/logout', [SessionController::class, 'destroy'])->name('sessions.destroy');
 
     Route::controller(ApplicationController::class)->as('applications.')->prefix('applications')->group(function() {
+        Route::get('/', 'index')->name('index');
+
         Route::get('/pending', 'pending')->name('pending');
+
+        Route::put('/{application}/coordinator-action', 'coordinatorAction')->name('coordinator-action');
+
+        Route::put('/{application}/manager-action', 'managerAction')->name('manager-action');
     });
 });
 
