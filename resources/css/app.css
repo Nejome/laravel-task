@@ -1,48 +1,66 @@
+@import "@fortawesome/fontawesome-free/css/all.css";
 
 :root {
-    --primryColor: #43766d;
+    --primryColor: #0f3a57; /*0f3a57 - 43766d*/
+    --primryHover: #025884;
     --accentColor: #f9c526;
     --mainTextColor: #081149;
+    --redColor: #ef4444;
+    --greenColor: #22c55e;
+    --redColorHover: #dc2626;
+    --greenColorHover: #16a34a;
+}
+
+html {
+    direction:rtl;
 }
 
 body {
-    direction: rtl;
     color: #4d5d6d;
 }
 
 header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #f5f5f7;
+    position: sticky;
+    top: 0;
+}
+
+.header {
     background-color: rgba(250, 208, 77, 0.4);
     padding: 30px 45px;
     border-radius: 1rem;
     border: none;
+    position: sticky;
 }
 
-header h1 {
+.header h1 {
     font-size: 2rem;
     margin-bottom: 0;
     color: var(--primryColor);
 }
 
-header ul {
+.header ul {
     list-style: none;
     margin-bottom: 0;
 }
 
-header ul li {
+.header ul li {
     display: inline-block;
 }
 
-header ul li:not(:first-child) {
+.header ul li:not(:first-child) {
     margin-right: 10px;
 }
 
-header a {
+.header a {
     text-decoration: none;
     font-size: 16px;
     transition: all .2s ease;
 }
 
-header ul a {
+.header ul a {
     color: inherit;
     display: inline-block;
     padding: 5px 20px;
@@ -50,7 +68,7 @@ header ul a {
     border: none;
 }
 
-header ul a:hover, a.active {
+.header ul a:hover, a.active {
     color: var(--accentColor);
     background-color: white;
 }
@@ -61,12 +79,13 @@ header ul a:hover, a.active {
     color: var(--primryColor);
     background: transparent;
     padding: 5px 10px;
+    text-align: center;
+    transition: all .2s ease;
 }
 
 .btn1:hover {
     background-color: var(--primryColor);
     color: white;
-    text-align: center;
 }
 
 .hr-card {
@@ -91,7 +110,7 @@ header ul a:hover, a.active {
 }
 
 .btn2:hover {
-    background-color: rgb(59 105 97/1);
+    background-color: var(--primryHover);
 }
 
 .hr-input {
@@ -105,4 +124,98 @@ header ul a:hover, a.active {
 
 .hr-input:focus {
     border-color: var(--primryColor);
+}
+
+.hr-error-message-text {
+    font-size: 12px;
+}
+
+.hr-alert-danger {
+    padding: 10px 15px;
+    background-color: #fecaca;
+    color: var(--redColor);
+    border: none;
+    border-radius: .4rem;
+}
+
+.hr-alert-success {
+    border: none;
+    border-radius: .4rem;
+    padding: 10px 15px;
+    background-color: #bbf7d0;
+    color: #22c55e;
+}
+
+.user .role {
+    opacity: .5;
+    font-size: .8rem;
+}
+
+.hr-logout-btn {
+    border: 2px solid var(--redColor);
+    border-radius: 1.5rem;
+    color: var(--redColor);
+    background: transparent;
+    padding: 5px 10px;
+    transition: all .2s ease;
+}
+
+.hr-logout-btn:hover {
+    background-color: var(--redColor);
+    color: white;
+}
+
+.hr-label {
+    color: #b5b7c9;
+    font-size: 13px;
+}
+
+.btn3 {
+    padding: 5px 20px;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    transition: all .2s ease;
+}
+
+.btn3-success {
+    background-color: var(--greenColor);
+}
+
+.btn3-danger {
+    background-color: var(--redColor);
+}
+
+.btn3-success:hover {
+    background-color: var(--greenColorHover);
+}
+
+.btn3-danger:hover {
+    background-color: var(--redColorHover);
+}
+
+.value-text {
+    font-size: 18px;
+}
+
+.hr-badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+}
+
+.accepted {
+    background-color: #bbf7d0;
+    color: #22c55e;
+}
+
+.rejected {
+    background-color: #fecaca;
+    color: var(--redColor);
+}
+
+.pending {
+    background-color: #fef9c3;
+    color: #facc15;
 }
