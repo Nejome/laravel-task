@@ -12,10 +12,10 @@
     <div class="container">
         <div class="header">
             <div class="d-flex justify-content-between align-items-center">
-                <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center flex-column flex-md-row gap-2">
                     <a href="/"><h1>الموارد البشرية</h1></a>
                     @if(auth()->check())
-                        <ul class="d-none d-md-block">
+                        <ul>
                             <li><a href="{{route('applications.pending')}}" class="@if(request()->route()->getName() == 'applications.pending') active @endif">الطلبات قيد الإنتظار</a></li>
 
                             <li><a href="{{route('applications.index')}}" class="@if(request()->route()->getName() == 'applications.index') active @endif">التقرير</a></li>
@@ -34,7 +34,7 @@
                                 @method('DELETE')
                                 <button class="hr-logout-btn d-flex align-items-center gap-2">
                                     <span><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
-                                    <span>تسجيل الخروج</span>
+                                    <span class="d-none d-md-block">تسجيل الخروج</span>
                                 </button>
                             </form>
                         </div>

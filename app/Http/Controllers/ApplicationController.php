@@ -6,6 +6,7 @@ use App\Enums\UserRoleEnum;
 use App\Http\Requests\ApplicationActionRequest;
 use App\Http\Requests\ApplicationRequest;
 use App\Models\Application;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
@@ -66,11 +67,15 @@ class ApplicationController extends Controller
         return redirect()->back()->with('success', 'تم الرد على الطلب بنجاح');
     }
 
-    public function store(ApplicationRequest $request): RedirectResponse
+    public function store(ApplicationRequest $request): RedirectResponse | JsonResponse
     {
-        $cv= $request->file('cv')->store('files', 'public');
+        $cv = $request->file('cv')->store('files', 'public');
 
         Application::create(array_merge($request->validated(), ['cv' => $cv]));
+
+        if ($request->wantsJson()) {
+            return response()->json('تم ارسال طلبك بنجاح');
+        }
 
         return redirect()->back()->with('success', 'تم ارسال طلبك بنجاح');
     }
