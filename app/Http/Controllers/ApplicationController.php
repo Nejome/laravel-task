@@ -14,7 +14,7 @@ class ApplicationController extends Controller
 {
     public function index(): View
     {
-        request()->user()->can('viewApplicationsReport');
+        $this->authorize('viewApplicationsReport', Application::class);
 
         $applications = Application::query()->paginate(10);
 
@@ -45,7 +45,7 @@ class ApplicationController extends Controller
 
     public function coordinatorAction(ApplicationActionRequest $request, Application $application): RedirectResponse
     {
-        $request->user()->can('coordinatorAction', $application);
+        $this->authorize('coordinatorAction', $application);
 
         $application->update([
             'coordinator_action' => $request->validated()['action'],
@@ -57,7 +57,7 @@ class ApplicationController extends Controller
 
     public function managerAction(ApplicationActionRequest $request, Application $application): RedirectResponse
     {
-        $request->user()->can('managerAction', $application);
+        $this->authorize('managerAction', $application);
 
         $application->update([
             'manager_action' => $request->validated()['action'],
