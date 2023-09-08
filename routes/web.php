@@ -41,4 +41,3 @@ Route::middleware('auth')->group(function() {
         Route::put('/{application}/manager-action', 'managerAction')->name('manager-action');
     });
 });
-
